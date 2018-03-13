@@ -56,3 +56,11 @@
 - git push origin master: 将所有“origin”remote的commit推到github上的“master”branch上
 ### 下载
 - git pull origin master: 将github上的“master”branch上的commit下拉到本地的“origin”remote
+
+
+## git报错
+- 如果有多个账号，在mac上push一个库时可能会报403错误，但是如果切换到root用户再push就没有问题。
+- git config --list 查看git的配置里面有一个credential.helper=osxkeychain
+- 但是在/Users/xx/下面的.gitconfig文件里却没有credential参数
+- 这里报错的原因是mac上有“钥匙串访问”这一服务，这个服务用来管理所有的秘钥、证书等等。因为总是登录之前的git账号，所以“钥匙串访问”就把原来的用户名和密码记住了，然后换了新的git账户时，它也不知道，你push的时候，它还帮你用老账号密码登录，所以403 permission denied。
+- 解决办法就是command+space搜索“钥匙串访问”，然后再里面搜“git”，把出来的所有记录删了。搞定！
