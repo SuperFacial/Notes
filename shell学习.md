@@ -305,3 +305,5 @@ grep [option] pattern file
 - echo 1 > /proc/sys/vm/drop_caches
 - sz file_name :发送文件到本地
 - rz ：本地文件上传到远端
+- grep -CN "error" catalina.out | tail -M 查看tomcat日志文件最后一个“error”出现的地方的前后N条记录，M=2N+1
+- env 查看当前环境
